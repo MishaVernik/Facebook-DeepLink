@@ -15,4 +15,13 @@
         android:text="Deep link works!"
         android:textSize="38sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtWork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please wait for redirecting....."
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="20dp" />
 </RelativeLayout>

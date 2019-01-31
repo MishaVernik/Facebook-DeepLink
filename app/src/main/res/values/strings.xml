@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DeepLink Test</string>
+    <string name="facebook_app_id">234034034045643</string>
+    <string name="fb_login_protocol_scheme">fb234034034045643</string>
 </resources>
