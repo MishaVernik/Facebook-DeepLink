@@ -24,39 +24,8 @@ public class DeepLink extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deep_link);
-        onPostRequest(linkSuccess);
+        OnPostEvent onPostEvent = new OnPostEvent("success");
     }
 
 
-    public void onPostRequest(final String link) {
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(link)
-                .build();
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    final String myResponse = response.body().string();
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent intent = new Intent(Intent.ACTION_VIEW);
-
-                            if (link.contentEquals(linkSuccess)){
-                                intent.setData(Uri.parse(link));
-                                startActivity(intent);
-                            }
-
-                        }
-                    });
-                }
-            }
-        });
-    }
 }
